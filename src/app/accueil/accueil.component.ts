@@ -26,7 +26,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     'total'
   ];
 
-  operationTypes: string[] = ['ASSURANCE', 'VISITE_TECHNIQUE', 'MAINTENANCE', 'REPARATION'];
+  operationTypes: string[] = ['ASSURANCE', 'VISITE_TECHNIQUE', 'MAINTENANCE', 'REPARATION','CARBURANT'];
 
   constructor(private aulshService: AulshService) { }
 
@@ -177,6 +177,8 @@ export class AccueilComponent implements OnInit, AfterViewInit {
         return '#FF7F7F';
       case 'REPARATION':
         return '#ff00d1';
+      case 'CARBURANT':
+        return '#000000';  
       default:
         return this.getRandomColor(); // Fallback to a random color if type is unknown
     }
@@ -192,6 +194,8 @@ export class AccueilComponent implements OnInit, AfterViewInit {
         return 'rgba(255, 127, 127, 0.3)'; // Red background with transparency
       case 'REPARATION':
         return 'rgba(255, 0, 209, 0.3)'; // Yellow background with transparency
+      case 'Carburant':
+        return 'rgba(0, 0, 0, 0.3)';  
       default:
         return 'rgba(0, 0, 0, 0.3)'; // Default to black background with transparency
     }

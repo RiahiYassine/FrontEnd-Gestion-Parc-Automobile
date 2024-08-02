@@ -62,6 +62,9 @@ import { ModifierEmployeDialogComponent } from './modifier-employe-dialog/modifi
 import { AjouterEmployeDialogComponent } from './ajouter-employe-dialog/ajouter-employe-dialog.component';
 import { ModifierMissionDialogComponent } from './modifier-mission-dialog/modifier-mission-dialog.component';
 import { ConsulterMissionDialogComponent } from './consulter-mission-dialog/consulter-mission-dialog.component';
+import { CarburantsComponent } from './carburants/carburants.component';
+import { AjouterCarburantDialogComponent } from './ajouter-carburant-dialog/ajouter-carburant-dialog.component';
+import { ModifierCarburantDialogComponent } from './modifier-carburant-dialog/modifier-carburant-dialog.component';
 
 
 @NgModule({
@@ -102,6 +105,9 @@ import { ConsulterMissionDialogComponent } from './consulter-mission-dialog/cons
     AjouterEmployeDialogComponent,
     ModifierMissionDialogComponent,
     ConsulterMissionDialogComponent,
+    CarburantsComponent,
+    AjouterCarburantDialogComponent,
+    ModifierCarburantDialogComponent,
     
    ],
   imports: [

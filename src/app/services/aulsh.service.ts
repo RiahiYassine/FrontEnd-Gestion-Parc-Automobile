@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Assurance, Departement, Maintenance, Mission, Reparation, Status, TypeOperation, User, Vehicule, VisiteTechnique } from '../model/vehicule.model';
+import { Assurance, Carburant, Departement, Maintenance, Mission, Reparation, Status, TypeOperation, User, Vehicule, VisiteTechnique } from '../model/vehicule.model';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from '../environments/environment';
@@ -469,5 +469,40 @@ export class AulshService {
       );
   }
 
+
+
+
+
+  filterCarburants(filterValues: any): Observable<Carburant[]> {
+    return this.http.post<Carburant[]>(`${environment.backendHost}/operations/carburants/filter`, filterValues)
+      .pipe(
+        catchError(error => {
+          let errorMsg = 'An error occurred';
+          if (error.status === 404) {
+            errorMsg = error.error;
+          }
+          return throwError(() => new Error(errorMsg));
+        })
+      );
+  }
+
+
+  public getAllCarburants(typeOperation : TypeOperation):Observable<Array<Carburant>>{
+    return this.http.get<Array<Carburant>>(`${environment.backendHost}/operations/typeOperation/${typeOperation}`);
+  }
+
+
+  public deleteCarburant(id: number): Observable<any> {
+    return this.http.delete(`${environment.backendHost}/operations/${id}`);
+  }
+
+  public addCarburant(carburantData: FormData): Observable<any> {
+    return this.http.post(`${environment.backendHost}/operations`, carburantData);
+  }
+
+  
+  public updateCarburant(id: number, formData: any): Observable<any> {
+    return this.http.put(`${environment.backendHost}/operations/${id}`, formData);
+  }  
 
 }

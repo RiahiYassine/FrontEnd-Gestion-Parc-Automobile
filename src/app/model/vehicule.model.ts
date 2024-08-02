@@ -46,6 +46,17 @@ export interface Maintenance {
 }
 
 
+export interface Carburant {
+  id: number;
+  dateOperation: Date;
+  nomCentre: String;
+  details:String;
+  cout:number;
+  vehicul:Vehicule;
+  nomFichier:String;
+  typeOperation:TypeOperation;
+}
+
 export interface Reparation {
   id: number;
   dateOperation: Date;
@@ -97,7 +108,8 @@ export enum TypeOperation {
   ASSURANCE = "ASSURANCE",
   MAINTENANCE = "MAINTENANCE",
   REPARATION = "REPARATION",
-  VISITE_TECHNIQUE = "VISITE_TECHNIQUE"
+  VISITE_TECHNIQUE = "VISITE_TECHNIQUE",
+  CARBURANT = "CARBURANT"
 }
 
 
