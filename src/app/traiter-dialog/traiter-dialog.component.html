@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Traiter Affectation</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Motif</mat-label>
+      <input matInput formControlName="motif" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Véhicule</mat-label>
+      <mat-select formControlName="vehiculeId" required>
+        <mat-option *ngFor="let vehicle of availableVehicles" [value]="vehicle.id">
+          {{ vehicle.vehiculeSpecif.immatriculation }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onReject()" [disabled]="!form.get('motif')?.valid || form.get('vehiculeId')?.value">Reject</button>
+  <button mat-button (click)="onAccept()" [disabled]="!form.get('motif')?.valid || !form.get('vehiculeId')?.valid">Accept</button>
+</mat-dialog-actions>

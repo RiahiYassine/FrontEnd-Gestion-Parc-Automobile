@@ -1,0 +1,63 @@
+<mat-drawer-container>
+    <mat-drawer class="fixed-drawer" #drawer mode="side" position="start" opened="true">
+        <div class="logo-container">
+            AULSH
+        </div>
+        <mat-nav-list>
+            <mat-list-item class="sidebar-item">
+                <button mat-button routerLink="/admin/accueil" class="sidebar-button">
+                    <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                    <span>Accueil</span>
+                </button>
+            </mat-list-item>
+            <mat-list-item class="sidebar-item">
+                <button mat-button routerLink="/admin/vehicules" class="sidebar-button">
+                    <mat-icon class="sidebar-icon">directions_car</mat-icon>
+                    <span>Vehicules</span>
+                </button>
+            </mat-list-item>
+            <mat-list-item class="sidebar-item">
+                <button mat-button [matMenuTriggerFor]="importMenuOperation" class="sidebar-button">
+                    <mat-icon class="sidebar-icon">payment</mat-icon>
+                    <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>Operations     
+                </button>
+                <mat-menu #importMenuOperation>
+                    <button mat-menu-item routerLink="/admin/operations/assurances">Assurances</button>
+                    <button mat-menu-item routerLink="/admin/operations/reparations">Reparations</button>
+                    <button mat-menu-item routerLink="/admin/operations/maintenances">Maintenances</button>
+                    <button mat-menu-item routerLink="/admin/operations/visiteTechnique">Visite Technique</button>
+                </mat-menu>
+            </mat-list-item>
+            <mat-list-item class="sidebar-item">
+                <button mat-button routerLink="/admin/missions" class="sidebar-button">
+                    <mat-icon class="sidebar-icon">assignment</mat-icon>
+                    <span>Missions</span>
+                </button>
+            </mat-list-item>
+            <mat-list-item class="sidebar-item">
+                <button mat-button routerLink="/admin/departements" class="sidebar-button">
+                    <mat-icon class="sidebar-icon">business</mat-icon>
+                    <span>Departement</span>
+                </button>
+            </mat-list-item>
+
+            <mat-list-item class="sidebar-item">
+                <button mat-button class="sidebar-button" (click)="logout()">
+                    <mat-icon class="sidebar-icon">exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-list-item>
+
+
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content class="drawer-content">
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+
+    
+
+
+</mat-drawer-container>

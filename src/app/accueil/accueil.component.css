@@ -1,0 +1,186 @@
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff; /* White background for a cleaner look */
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
+}
+
+mat-card {
+  margin-bottom: 20px;
+  border-radius: 10px; /* Rounded corners */
+}
+
+mat-card-header {
+  background-color: #f5f5f5; /* Light grey background for header */
+  border-bottom: 1px solid #ddd; /* Border to separate header from content */
+  border-radius: 10px 10px 0 0; /* Rounded corners only on top */
+  padding: 10px; /* Padding for header */
+}
+
+.table-container {
+  margin-top: 10px;
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #ddd; /* Light border color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%; /* Ensure table takes full width */
+  border-collapse: collapse; /* Remove gaps between table cells */
+  text-align: center; /* Center align text */
+}
+
+.table-container th, .table-container td {
+  padding: 12px 15px; /* Add padding to table cells */
+  border-bottom: 1px solid #ddd; /* Add border below table cells */
+  border-right: 1px solid #ddd; /* Add border right to separate columns */
+  vertical-align: middle; /* Center align vertically */
+}
+
+.table-container th {
+  background-color: #f1f1f1; /* Slightly darker background for headers */
+  text-align: center; /* Center align text */
+}
+
+.table-container th:last-child, .table-container td:last-child {
+  border-right: none; /* Remove border-right for the last column */
+}
+
+.table-container tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row color */
+}
+
+.table-container tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+.filter-form {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.filter-form mat-form-field {
+  width: 100%;
+}
+
+.filter-form > div:nth-child(7) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-form > div:nth-child(7) button {
+  margin-left: auto;
+}
+
+.errorClass {
+  margin: 20px;
+}
+
+.error-card {
+  border-left: 5px solid #f44336; /* Red color for the border */
+  background-color: #fdecea; /* Light red background */
+  color: #b71c1c; /* Dark red text */
+  margin-top: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.error-card mat-card-header {
+  background-color: transparent;
+  color: #b71c1c; /* Dark red text */
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.error-card mat-card-title {
+  font-weight: bold; /* Bold font for the title */
+  font-size: 1.2em; /* Slightly larger font size */
+}
+
+.error-card mat-card-content {
+  padding: 0; /* Remove default padding */
+  font-size: 1em; /* Ensure font size is readable */
+}
+
+.error-card p {
+  margin: 0; /* Remove default margin */
+  line-height: 1.5; /* Increase line-height for readability */
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.actions-container button {
+  border-right: 5px solid #ddd;
+}
+
+.actions-container button:first-child {
+  border-left: none; /* Remove border from the first button */
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.button-container {
+  margin-right: 7px;
+}
+
+button mat-icon {
+  margin-right: 8px;
+}
+
+.centered-buttonAccepter {
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.chart-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.chart-canvas {
+  flex: 1;
+  height: 400px; /* Explicit height */
+}
+
+.chart-legend {
+  margin-left: 20px; /* Space between the graph and the legend */
+}
+
+
+.filter-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter-form mat-form-field {
+  width: auto;
+  margin-right: 10px;
+}
+
+.filter-form button {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}

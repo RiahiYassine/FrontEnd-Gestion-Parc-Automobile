@@ -1,0 +1,82 @@
+<div class="dialog-header">
+    <h1 mat-dialog-title>Ajouter Maintenance</h1>
+    <button mat-icon-button mat-dialog-close class="close-icon-button">
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form [formGroup]="maintenanceForm">
+
+
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Nom du centre</mat-label>
+            <input matInput formControlName="nomCentre">
+          </mat-form-field>
+        </div>     
+
+        <div class="form-field-container">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Categorie Maintenance</mat-label>
+              <mat-select formControlName="categorieMaintenance">
+                <mat-option value=""><em>None</em></mat-option>
+                <mat-option *ngFor="let type of categorieMaintenancesOptions" [value]="type">{{type}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>     
+
+      </div>
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Immatriculation</mat-label>
+            <input matInput formControlName="immatriculation">
+          </mat-form-field>
+        </div>
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Coût</mat-label>
+            <input matInput formControlName="cout" type="number">
+          </mat-form-field>
+        </div>
+        
+      </div>
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Date de l'opération</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="dateOperation" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-field-container">
+          <mat-form-field appearance="outline">
+            <mat-label>File</mat-label>
+            <button type="button" mat-icon-button matPrefix (click)="fileInput.click()">
+              <mat-icon>attach_file</mat-icon>
+            </button>
+            <input matInput readonly formControlName="fileName">
+            <input type="file" hidden #fileInput (change)="onFileChange($event)" accept="application/pdf">
+          </mat-form-field>
+        </div>
+      </div>
+      
+
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Détails</mat-label>
+            <textarea matInput formControlName="details"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngIf="fileError" class="error">{{ fileError }}</div>
+    </form>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-button color="primary" (click)="onSubmit()">Ajouter</button>
+  </div>
+  

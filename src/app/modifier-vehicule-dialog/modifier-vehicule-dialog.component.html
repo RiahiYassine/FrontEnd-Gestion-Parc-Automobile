@@ -1,0 +1,120 @@
+<div class="dialog-header">
+  <h1 mat-dialog-title>Modifier Vehicule</h1>
+  <button mat-icon-button mat-dialog-close class="close-icon-button">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="vehiculeForm">
+    <div class="form-row">
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Immatriculation</mat-label>
+          <input matInput formControlName="immatriculation">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Type d'Immatriculation</mat-label>
+          <mat-select formControlName="typeImmatriculation">
+            <mat-option *ngFor="let type of typeImmatriculationOptions" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Numéro de Chassis</mat-label>
+          <input matInput formControlName="numeroChassis">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-roww">
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <div class="form-field-container" formGroupName="modele">
+          <mat-form-field appearance="outline" class="form-field" formGroupName="marque">
+            <mat-label>Nom de la Marque</mat-label>
+            <mat-select formControlName="nomMarque">
+              <mat-option *ngFor="let type of marques" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="add-button-container">
+            <button mat-icon-button type="button" (click)="openAddMarqueDialog()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <div class="form-field-container" formGroupName="modele">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Nom du Modèle</mat-label>
+            <mat-select formControlName="nomModele">
+              <mat-option *ngFor="let type of modeles" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="add-button-container">
+            <button mat-icon-button type="button" (click)="openAddModeleDialog()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Type de Carburant</mat-label>
+          <mat-select formControlName="typeCarburant">
+            <mat-option *ngFor="let type of typeCarburantOptions" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Nombre de Places</mat-label>
+          <input matInput formControlName="nombreDePlaces" type="number">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Puissance</mat-label>
+          <input matInput formControlName="puissance" type="number">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Poids</mat-label>
+          <input matInput formControlName="poids" type="number">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field-container" formGroupName="vehiculeSpecif">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Kilométrage</mat-label>
+          <input matInput formControlName="kilometrage" type="number">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container" formGroupName="vehicule">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Date d'entrée</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateEntree" [max]="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>      
+      <div class="form-field-container" formGroupName="vehicule">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Disponibilité</mat-label>
+          <mat-select formControlName="disponibilite">
+            <mat-option *ngFor="let option of disponibiliteOptions" [value]="option.value">{{ option.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button mat-button color="primary" (click)="onSubmit()">Modifier</button>
+</div>

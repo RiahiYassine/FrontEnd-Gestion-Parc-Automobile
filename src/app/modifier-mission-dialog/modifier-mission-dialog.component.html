@@ -1,0 +1,108 @@
+<div class="dialog-header">
+    <h1 mat-dialog-title>Modifier Mission</h1>
+    <button mat-icon-button mat-dialog-close class="close-icon-button">
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+  
+  <div mat-dialog-content>
+    <form [formGroup]="missionForm">
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Référence</mat-label>
+            <input matInput formControlName="reference">
+          </mat-form-field>
+        </div>
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Destination</mat-label>
+            <input matInput formControlName="destination">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Objectif</mat-label>
+            <input matInput formControlName="objectif">
+          </mat-form-field>
+        </div>
+
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Responsable</mat-label>
+            <mat-select formControlName="responsableId">
+              <mat-option *ngFor="let employe of employes" [value]="employe.id">
+                {{ employe.nom }} {{ employe.prenom }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+      </div>
+  
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Chauffeur</mat-label>
+            <mat-select formControlName="chauffeurId">
+              <mat-option *ngFor="let employe of employes" [value]="employe.id">
+                {{ employe.nom }} {{ employe.prenom }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Département</mat-label>
+            <mat-select formControlName="departementId">
+              <mat-option *ngIf="logedEmploye?.departement" [value]="logedEmploye.departement?.id">
+                {{ logedEmploye.departement?.libelle }} <!-- Use 'libelle' or the appropriate property for the department name -->
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+      </div>
+  
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Date de Début</mat-label>
+            <input matInput [matDatepicker]="pickerStart" formControlName="dateDebut" [min]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Date de Fin</mat-label>
+            <input matInput [matDatepicker]="pickerEnd" formControlName="dateFin" [min]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Accompagnants</mat-label>
+            <mat-select formControlName="accompagnantsIds" multiple>
+              <mat-option *ngFor="let employe of employes" [value]="employe.id">
+                {{ employe.nom }} {{ employe.prenom }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-button color="primary" (click)="onSubmit()">Modifier</button>
+  </div>
+  

@@ -1,0 +1,91 @@
+<div class="dialog-header">
+    <h1 mat-dialog-title>Modifier Departement</h1>
+    <button mat-icon-button mat-dialog-close class="close-icon-button">
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form [formGroup]="departementForm">
+        <div class="form-row">
+            <div class="form-field-container" formGroupName="departement">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>libelle</mat-label>
+                <input matInput formControlName="libelle">
+              </mat-form-field>
+            </div>
+            <div class="form-field-container" formGroupName="departement">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>description</mat-label>
+                <input matInput formControlName="description">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field-container" formGroupName="chef">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>email</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+            </div>
+            <div class="form-field-container" formGroupName="chef">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>role</mat-label>
+                <input matInput formControlName="role">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-row">      
+            <div class="form-field-container" formGroupName="chef">
+                <mat-form-field appearance="outline" class="form-field">
+                  <mat-label>nom</mat-label>
+                  <input matInput formControlName="nom">
+                </mat-form-field>
+            </div>
+            <div class="form-field-container" formGroupName="chef">
+                <mat-form-field appearance="outline" class="form-field">
+                  <mat-label>prenom</mat-label>
+                  <input matInput formControlName="prenom">
+                </mat-form-field>
+            </div>
+            
+          </div>
+
+
+          <div class="form-row">      
+            <div class="form-field-container" formGroupName="chef">
+                <mat-form-field appearance="outline" class="form-field">
+                  <mat-label>cin</mat-label>
+                  <input matInput formControlName="cin">
+                </mat-form-field>
+            </div>
+            <div class="form-field-container" formGroupName="chef">
+                <mat-form-field appearance="outline" class="form-field">
+                  <mat-label>password</mat-label>
+                  <input matInput formControlName="password">
+                </mat-form-field>
+            </div>
+            
+    
+            
+        </div>        
+
+        <div class="form-row">
+          <div class="form-field-container" formGroupName="chef">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>grade</mat-label>
+              <input matInput formControlName="grade">
+            </mat-form-field>
+          </div>
+          <div class="form-field-container">
+            
+          </div>
+        </div>
+    </form>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-button color="primary" (click)="onSubmit()">Modifier</button>
+  </div>
+  

@@ -1,0 +1,15 @@
+<div class="dialog-header">
+<h1 mat-dialog-title >Ajouter Marque</h1>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="marqueForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom de la Marque</mat-label>
+      <input matInput formControlName="nomMarque">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button mat-button color="primary" (click)="onSubmit()">Ajouter</button>
+</div>
