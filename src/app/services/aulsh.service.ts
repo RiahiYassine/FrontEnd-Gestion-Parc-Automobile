@@ -505,4 +505,10 @@ export class AulshService {
     return this.http.put(`${environment.backendHost}/operations/${id}`, formData);
   }  
 
+
+  public updateKilometrage(id: number, formData: any): Observable<any> {
+    return this.http.put(`${environment.backendHost}/affectations/kilometrage/${id}`, formData);
+  }  
+
+
 }

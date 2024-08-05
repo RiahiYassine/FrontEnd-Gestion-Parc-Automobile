@@ -22,6 +22,8 @@ import { ConsulterMissionDialogComponent } from '../consulter-mission-dialog/con
 export class MissionComponent implements OnInit {
 
   missions: Mission[] = [];
+  missionsAccepter: Mission[] = [];
+  missionsRefuser: Mission[] = [];
 
   dataSource!: MatTableDataSource<Mission>;
   dataSourceAccepter!: MatTableDataSource<Mission>;
@@ -235,8 +237,8 @@ export class MissionComponent implements OnInit {
 
     this.aulshService.getAllMissionsAccepter().subscribe({
       next: value => {
-        this.missions = value;
-        this.dataSourceAccepter = new MatTableDataSource<Mission>(this.missions);
+        this.missionsAccepter = value;
+        this.dataSourceAccepter = new MatTableDataSource<Mission>(this.missionsAccepter);
         this.dataSourceAccepter.paginator = this.paginator;
         this.dataSourceAccepter.sortingDataAccessor = (obj: Mission, property: string) => {
           return this.getNestedProperty(obj, property);
@@ -251,8 +253,8 @@ export class MissionComponent implements OnInit {
 
     this.aulshService.getAllMissionsRefuser().subscribe({
       next: value => {
-        this.missions = value;
-        this.dataSourceRefuser = new MatTableDataSource<Mission>(this.missions);
+        this.missionsRefuser = value;
+        this.dataSourceRefuser = new MatTableDataSource<Mission>(this.missionsRefuser);
         this.dataSourceRefuser.paginator = this.paginator;
         this.dataSourceRefuser.sortingDataAccessor = (obj: Mission, property: string) => {
           return this.getNestedProperty(obj, property);
@@ -304,6 +306,7 @@ export class MissionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log("hey")
         this.loadMissions();
       }
     });
@@ -314,7 +317,7 @@ export class MissionComponent implements OnInit {
     const dialogRef = this.dialog.open(ConsulterMissionDialogComponent, {
       width: '400px',
       data: {
-        mission
+        missiondata : mission
       }
     });
 
