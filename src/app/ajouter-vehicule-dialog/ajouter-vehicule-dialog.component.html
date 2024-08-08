@@ -103,11 +103,14 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>      
+
+
+
       <div class="form-field-container" formGroupName="vehicule">
         <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Disponibilité</mat-label>
-          <mat-select formControlName="disponibilite">
-            <mat-option *ngFor="let option of disponibiliteOptions" [value]="option.value">{{ option.label }}</mat-option>
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="statusVehicule">
+            <mat-option *ngFor="let s of statusVehicules" [value]="s">{{ s }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AulshService } from '../services/aulsh.service';
 import { DateAdapter } from '@angular/material/core';
-import { TypeCarburant, TypeImmatriculation, Disponibilite } from '../model/vehicule.model';
+import { StatusVehicule, TypeCarburant, TypeImmatriculation } from '../model/vehicule.model';
 import { AddMarqueDialogComponent } from '../add-marque-dialog/add-marque-dialog.component';
 import { AddModeleDialogComponent } from '../add-modele-dialog/add-modele-dialog.component';
 
@@ -17,10 +17,8 @@ export class ModifierVehiculeDialogComponent implements OnInit {
   vehiculeForm: FormGroup;
   typeCarburantOptions = Object.values(TypeCarburant);
   typeImmatriculationOptions = Object.values(TypeImmatriculation);
-  disponibiliteOptions = [
-    { label: 'Disponible', value: true },
-    { label: 'Indisponible', value: false }
-  ];
+  statusVehicules = Object.values(StatusVehicule);
+
   marques: string[] = [];
   modeles: string[] = [];
   maxDate: Date;
@@ -38,7 +36,7 @@ export class ModifierVehiculeDialogComponent implements OnInit {
     this.vehiculeForm = this.fb.group({
       vehicule: this.fb.group({
         dateEntree: ['', Validators.required],
-        disponibilite: [true, Validators.required]
+        statusVehicule: ['', Validators.required]
       }),
       vehiculeSpecif: this.fb.group({
         numeroChassis: ['', Validators.required],
@@ -83,7 +81,7 @@ export class ModifierVehiculeDialogComponent implements OnInit {
       this.vehiculeForm.patchValue({
         vehicule: {
           dateEntree: this.data.dateEntree,
-          disponibilite: this.data.disponibilite
+          statusVehicule: this.data.statusVehicule
         },
         vehiculeSpecif: {
           numeroChassis: this.data.vehiculeSpecif.numeroChassis,

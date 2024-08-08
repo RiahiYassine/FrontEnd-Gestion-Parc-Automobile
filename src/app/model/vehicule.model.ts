@@ -26,7 +26,7 @@ export interface VehiculeSpecif {
 export interface Vehicule {
   id: number;
   dateEntree: Date;
-  disponibilite: boolean;
+  statusVehicule: StatusVehicule;
   vehiculeSpecif: VehiculeSpecif;
 }
 
@@ -114,6 +114,12 @@ export enum AlerteStatus {
 }
 
 
+export enum StatusVehicule {
+  EN_PARC = "EN_PARC",
+  EN_SERVICE = "EN_SERVICE"
+}
+
+
 export enum TypeOperation {
   ASSURANCE = "ASSURANCE",
   MAINTENANCE = "MAINTENANCE",
@@ -137,10 +143,6 @@ export enum TypeImmatriculation{
   MROUGE = 'MROUGE'
 }
 
-export enum Disponibilite{
-  Disponible = 'Disponible',
-  Indisponible = 'Indisponible'
-}
 
 
 export interface Departement {

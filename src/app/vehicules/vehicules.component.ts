@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TypeCarburant, TypeImmatriculation, Vehicule, Disponibilite } from '../model/vehicule.model';
+import { StatusVehicule, TypeCarburant, TypeImmatriculation, Vehicule } from '../model/vehicule.model';
 import { AulshService } from '../services/aulsh.service';
 import { AjouterVehiculeDialogComponent } from '../ajouter-vehicule-dialog/ajouter-vehicule-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,11 +22,11 @@ export class VehiculesComponent implements OnInit {
   filterForm: FormGroup;
   errorMessage: string | null = null;
 
-  displayedColumns = ["immatriculation","dateEntree" , "nomMarque", "nomModele", "typeImmatriculation", "typeCarburant", "disponibilite", "update","delete"];
+  displayedColumns = ["immatriculation","dateEntree" , "nomMarque", "nomModele", "typeImmatriculation", "typeCarburant", "statusVehicule", "update","delete"];
 
   typeCarburantOptions = Object.values(TypeCarburant);
   typeImmatriculationOptions = Object.values(TypeImmatriculation);
-  disponibilite = Object.values(Disponibilite);
+  statusVehicules = Object.values(StatusVehicule);
 
   immatriculations!: string[];
   marques!: string[];
@@ -42,7 +42,7 @@ export class VehiculesComponent implements OnInit {
       marque: [''],
       modele: [''],
       typeCarburant: [''],
-      disponibilite: [''],
+      statusVehicule: [''],
       dateEntree : [''],
     });
   }

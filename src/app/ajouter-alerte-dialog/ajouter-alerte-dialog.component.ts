@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AulshService } from '../services/aulsh.service';
 import { DateAdapter } from '@angular/material/core';
-import { TypeCarburant, TypeImmatriculation, Disponibilite, SeverityLevel, Vehicule } from '../model/vehicule.model';
+import { TypeCarburant, TypeImmatriculation, SeverityLevel, Vehicule } from '../model/vehicule.model';
 import moment from 'moment';
 import { AddTypeAlerteDialogComponent } from '../add-type-alerte-dialog/add-type-alerte-dialog.component';
 
