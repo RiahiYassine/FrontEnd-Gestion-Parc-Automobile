@@ -95,14 +95,24 @@ export interface Assurance {
   vehiculeSpecif: VehiculeSpecif;
 }
 
-
-
-
 export enum CategorieMaintenance {
   MECANIQUE = "MECANIQUE",
   TOLERIE = "TOLERIE",
   ELECTRIQUE = "ELECTRIQUE",
 }
+
+
+export enum SeverityLevel {
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  HIGH = "HIGH",
+}
+
+export enum AlerteStatus {
+  DONE = "DONE",
+  NOT_DONE = "NOT_DONE",
+}
+
 
 export enum TypeOperation {
   ASSURANCE = "ASSURANCE",

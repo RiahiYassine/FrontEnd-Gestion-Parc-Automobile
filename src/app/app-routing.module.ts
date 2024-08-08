@@ -16,6 +16,7 @@ import { AuthorizationGuard } from './guards/authorization.guard';
 import { DepartementComponent } from './departement/departement.component';
 import { MissionComponent } from './mission/mission.component';
 import { CarburantsComponent } from './carburants/carburants.component';
+import { NotificationListComponent } from './notification-list/notification-list.component';
 
 const routes: Routes = [
   {path:"",component:SidebarAdminComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
       {path:"operations/visiteTechnique",component:VISITETECHNIQUESComponent},
       {path:"operations/carburants",component:CarburantsComponent},
       {path:"missions",component:MissionComponent},
-      {path:"departements",component:DepartementComponent}
+      {path:"departements",component:DepartementComponent},
+      {path:"alertes",component:NotificationListComponent}
     ]
   },
 

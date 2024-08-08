@@ -65,6 +65,11 @@ import { ConsulterMissionDialogComponent } from './consulter-mission-dialog/cons
 import { CarburantsComponent } from './carburants/carburants.component';
 import { AjouterCarburantDialogComponent } from './ajouter-carburant-dialog/ajouter-carburant-dialog.component';
 import { ModifierCarburantDialogComponent } from './modifier-carburant-dialog/modifier-carburant-dialog.component';
+import { NotificationListComponent } from './notification-list/notification-list.component';
+import { AjouterAlerteDialogComponent } from './ajouter-alerte-dialog/ajouter-alerte-dialog.component';
+import { ModifierAlerteDialogComponent } from './modifier-alerte-dialog/modifier-alerte-dialog.component';
+import { AddTypeAlerteDialogComponent } from './add-type-alerte-dialog/add-type-alerte-dialog.component';
+import { ConfirmationFinishDialogComponent } from './confirmation-finish-dialog/confirmation-finish-dialog.component';
 
 
 @NgModule({
@@ -108,6 +113,11 @@ import { ModifierCarburantDialogComponent } from './modifier-carburant-dialog/mo
     CarburantsComponent,
     AjouterCarburantDialogComponent,
     ModifierCarburantDialogComponent,
+    NotificationListComponent,
+    AjouterAlerteDialogComponent,
+    ModifierAlerteDialogComponent,
+    AddTypeAlerteDialogComponent,
+    ConfirmationFinishDialogComponent,
     
    ],
   imports: [

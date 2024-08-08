@@ -1,0 +1,16 @@
+<div class="dialog-header">
+    <h1 mat-dialog-title >Ajouter Type Alerte</h1>
+    </div>
+    <div mat-dialog-content>
+      <form [formGroup]="typeAlerteForm">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Type</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+      </form>
+    </div>
+    <div mat-dialog-actions class="dialog-actions">
+      <button mat-button mat-dialog-close>Annuler</button>
+      <button mat-button color="primary" (click)="onSubmit()">Ajouter</button>
+    </div>
+    

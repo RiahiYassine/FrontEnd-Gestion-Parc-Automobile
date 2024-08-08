@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Assurance, Carburant, Departement, Maintenance, Mission, Reparation, Status, TypeOperation, User, Vehicule, VisiteTechnique } from '../model/vehicule.model';
+import { AlerteStatus, Assurance, Carburant, Departement, Maintenance, Mission, Reparation, Status, TypeOperation, User, Vehicule, VisiteTechnique } from '../model/vehicule.model';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from '../environments/environment';
@@ -509,6 +509,73 @@ export class AulshService {
   public updateKilometrage(id: number, formData: any): Observable<any> {
     return this.http.put(`${environment.backendHost}/affectations/kilometrage/${id}`, formData);
   }  
+
+
+  filterAlertesEnCour(filterValues: any): Observable<any[]> {
+    return this.http.post<any[]>(`${environment.backendHost}/alertes/encour/filter`, filterValues)
+      .pipe(
+        catchError(error => {
+          let errorMsg = 'An error occurred';
+          if (error.status === 404) {
+            errorMsg = error.error;
+          }
+          return throwError(() => new Error(errorMsg));
+        })
+      );
+  }
+
+
+  filterAlertesDone(filterValues: any): Observable<any[]> {
+    return this.http.post<any[]>(`${environment.backendHost}/alertes/done/filter`, filterValues)
+      .pipe(
+        catchError(error => {
+          let errorMsg = 'An error occurred';
+          if (error.status === 404) {
+            errorMsg = error.error;
+          }
+          return throwError(() => new Error(errorMsg));
+        })
+      );
+  }
+
+
+  public getAllTypeAlertes(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(`${environment.backendHost}/alertes/types`);
+  }
+
+  public getAllAlertesMatricules(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(`${environment.backendHost}/alertes/immatriculations`);
+  }
+
+
+
+ public getFinishedAlertes(status : AlerteStatus):Observable<any[]>{
+    return this.http.get<any[]>(`${environment.backendHost}/alertes/status/${status}`);
+ }
+ 
+ public getAlertesEnCour(status : AlerteStatus):Observable<any[]>{
+  return this.http.get<any[]>(`${environment.backendHost}/alertes/status/${status}`);
+}
+
+
+public addAlerte(alerteData: any): Observable<any> {
+  return this.http.post(`${environment.backendHost}/alertes`, alerteData);
+}
+  
+
+public deleteAlerte(id: number): Observable<any> {
+  return this.http.delete(`${environment.backendHost}/alertes/${id}`);
+}
+
+
+public finishAlerte(id: number): Observable<any> {
+  return this.http.get(`${environment.backendHost}/alertes/${id}/finish`);
+}
+
+
+public updateAlerte(id: number, alerteData: any): Observable<any> {
+  return this.http.put(`${environment.backendHost}/alertes/${id}`, alerteData);
+} 
 
 
 }

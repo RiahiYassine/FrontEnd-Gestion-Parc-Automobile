@@ -1,0 +1,92 @@
+<div class="dialog-header">
+    <h1 mat-dialog-title>Ajouter Alerte</h1>
+    <button mat-icon-button mat-dialog-close class="close-icon-button">
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form [formGroup]="alerteForm">
+        <div class="form-roww">
+          <div class="form-field-container" formGroupName="typeAlerte">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Type Alerte</mat-label>
+              <mat-select formControlName="name">
+                <mat-option *ngFor="let type of typeAlertes" [value]="type">{{ type }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="add-button-container">
+              <button mat-icon-button type="button" (click)="openAddTypeAlerteDialog()">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-field-container">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Severity</mat-label>
+              <mat-select formControlName="severity">
+                <mat-option *ngFor="let type of severities" [value]="type">{{ type }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        
+
+
+      <div class="form-row">
+
+        <div class="form-field-container" formGroupName="vehicule">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Vehicule</mat-label>
+            <mat-select formControlName="id">
+              <mat-option *ngFor="let row of vehicules" [value]="row.id">{{ row.vehiculeSpecif.immatriculation }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Date Operation</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateReminder" [min]="minDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+        
+        
+      </div>
+
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Kilometrage</mat-label>
+            <input matInput formControlName="kilometrage"/>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field-container">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Message</mat-label>
+            <textarea matInput formControlName="message"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div *ngIf="alerteForm.hasError('atLeastOneRequired')">
+        <mat-error>
+          At least one of Date Reminder or Kilometrage must be provided.
+        </mat-error>
+      </div>
+
+    </form>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-button color="primary" (click)="onSubmit()">Ajouter</button>
+  </div>
+  
