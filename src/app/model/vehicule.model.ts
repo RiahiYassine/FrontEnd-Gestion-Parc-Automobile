@@ -27,9 +27,21 @@ export interface Vehicule {
   id: number;
   dateEntree: Date;
   statusVehicule: StatusVehicule;
+  categorieVehicule: CategorieVehicule ;
+  typeTransmission: TypeTransmission ;
   vehiculeSpecif: VehiculeSpecif;
 }
 
+
+export enum CategorieVehicule {
+  VOITURE = "VOITURE",
+  MINIBUS = "MINIBUS",
+}
+
+export enum TypeTransmission {
+  AUTOMATIQUE = "AUTOMATIQUE",
+  MANUELLE = "MANUELLE",
+}
 
 
 export interface Maintenance {
