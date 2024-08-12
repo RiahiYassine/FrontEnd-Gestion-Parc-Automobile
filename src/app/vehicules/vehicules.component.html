@@ -75,16 +75,6 @@
   </mat-card>
 </div>
 
-<div class="errorClass" *ngIf="errorMessage">
-  <mat-card class="error-card">
-    <mat-card-header>
-      <mat-card-title>Error</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{ errorMessage }}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
 
 <div class="container" *ngIf="!errorMessage">
   <mat-card>
@@ -102,7 +92,7 @@
 
     <mat-divider></mat-divider>
  <!--*ngIf="dataSource.data.length!=0"-->
-    <mat-card-content >
+    <mat-card-content *ngIf="dataSource.data.length != 0">
       <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table-container" [hidden]="!dataSource || dataSource.data.length === 0">
         <ng-container matColumnDef="immatriculation">
           <th mat-header-cell *matHeaderCellDef mat-sort-header="vehiculeSpecif.immatriculation">Matricule</th>

@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AulshService } from '../services/aulsh.service';
 import { DateAdapter } from '@angular/material/core';
-import { StatusVehicule, TypeCarburant, TypeImmatriculation } from '../model/vehicule.model';
+import { CategorieVehicule, StatusVehicule, TypeCarburant, TypeImmatriculation, TypeTransmission } from '../model/vehicule.model';
 import { AddMarqueDialogComponent } from '../add-marque-dialog/add-marque-dialog.component';
 import { AddModeleDialogComponent } from '../add-modele-dialog/add-modele-dialog.component';
 
@@ -18,6 +18,8 @@ export class ModifierVehiculeDialogComponent implements OnInit {
   typeCarburantOptions = Object.values(TypeCarburant);
   typeImmatriculationOptions = Object.values(TypeImmatriculation);
   statusVehicules = Object.values(StatusVehicule);
+  categories = Object.values(CategorieVehicule);
+  transmissions = Object.values(TypeTransmission);
 
   marques: string[] = [];
   modeles: string[] = [];
@@ -36,7 +38,9 @@ export class ModifierVehiculeDialogComponent implements OnInit {
     this.vehiculeForm = this.fb.group({
       vehicule: this.fb.group({
         dateEntree: ['', Validators.required],
-        statusVehicule: ['', Validators.required]
+        statusVehicule: ['', Validators.required],
+        categorieVehicule: ['', Validators.required],
+        typeTransmission: ['', Validators.required],
       }),
       vehiculeSpecif: this.fb.group({
         numeroChassis: ['', Validators.required],
@@ -81,7 +85,9 @@ export class ModifierVehiculeDialogComponent implements OnInit {
       this.vehiculeForm.patchValue({
         vehicule: {
           dateEntree: this.data.dateEntree,
-          statusVehicule: this.data.statusVehicule
+          statusVehicule: this.data.statusVehicule,
+          categorieVehicule: this.data.categorieVehicule,
+          typeTransmission: this.data.typeTransmission
         },
         vehiculeSpecif: {
           numeroChassis: this.data.vehiculeSpecif.numeroChassis,

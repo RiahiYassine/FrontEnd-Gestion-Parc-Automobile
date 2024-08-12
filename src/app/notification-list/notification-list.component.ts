@@ -27,7 +27,7 @@ export class NotificationListComponent  implements OnInit {
   filterForm: FormGroup;
   errorMessageDoneFilter: string | null = null;
   errorMessageEnCourFilter: string | null = null;
-  displayedColumns = ["typeAlerte", "message", "matricule", "disponibilite", "createdAt", "dateReminder", "kilometrage", "severity", "actions"];
+  displayedColumns = ["typeAlerte", "message", "matricule", "statusVehicule", "createdAt", "dateReminder", "kilometrage", "severity", "actions"];
   typeAlertes!: string[];
   matricules!: string[];
   severities = Object.values(SeverityLevel)

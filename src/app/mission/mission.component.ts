@@ -12,6 +12,7 @@ import { RescheduleDialogComponent } from '../reschedule-dialog/reschedule-dialo
 import { AjouterAssuranceDialogComponent } from '../operations/ajouter-assurance-dialog/ajouter-assurance-dialog.component';
 import { TraiterDialogComponent } from '../traiter-dialog/traiter-dialog.component';
 import { ConsulterMissionDialogComponent } from '../consulter-mission-dialog/consulter-mission-dialog.component';
+import { CheckMissionDialogComponent } from '../check-mission-dialog/check-mission-dialog.component';
 
 
 @Component({
@@ -316,6 +317,20 @@ export class MissionComponent implements OnInit {
   consulterDialog(mission: Mission): void {
     const dialogRef = this.dialog.open(ConsulterMissionDialogComponent, {
       width: '400px',
+      data: {
+        missiondata : mission
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadMissions();
+      }
+    });
+  }
+
+  CheckDialog(mission: Mission): void {
+    const dialogRef = this.dialog.open(CheckMissionDialogComponent, {
       data: {
         missiondata : mission
       }

@@ -43,22 +43,7 @@
 
 
 
-
-
-
-
-<div class="errorClass" *ngIf="errorMessageEnCourFilter">
-  <mat-card class="error-card">
-    <mat-card-header>
-      <mat-card-title>Error</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{ errorMessageEnCourFilter }}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-<div class="container" *ngIf="!errorMessageEnCourFilter">
+<div class="container" *ngIf="!errorMessageEnCourFilter && dataSourceEnCour.data.length != 0">
   <mat-card>  
 
     <mat-card-header>
@@ -113,9 +98,9 @@
           <td mat-cell *matCellDef="let row">{{ row.vehicule.vehiculeSpecif.immatriculation }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="disponibilite">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="disponibilite">Status</th>
-          <td mat-cell *matCellDef="let row">{{ row.vehicule.disponibilite }}</td>
+        <ng-container matColumnDef="statusVehicule">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="statusVehicule">Status</th>
+          <td mat-cell *matCellDef="let row">{{ row.vehicule.statusVehicule }}</td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
@@ -149,20 +134,7 @@
 
 
 
-
-
-<div class="errorClass" *ngIf="errorMessageDoneFilter">
-  <mat-card class="error-card">
-    <mat-card-header>
-      <mat-card-title>Error</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{ errorMessageDoneFilter }}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
-
-<div class="container" *ngIf="!errorMessageDoneFilter">
+<div class="container" *ngIf="!errorMessageDoneFilter && dataSource.data.length != 0">
   <mat-card>  
 
     <mat-card-header>
@@ -209,9 +181,9 @@
           <td mat-cell *matCellDef="let row">{{ row.vehicule.vehiculeSpecif.immatriculation }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="disponibilite">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="disponibilite">Status</th>
-          <td mat-cell *matCellDef="let row">{{ row.vehicule.disponibilite }}</td>
+        <ng-container matColumnDef="statusVehicule">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="statusVehicule">Status</th>
+          <td mat-cell *matCellDef="let row">{{ row.vehicule.statusVehicule }}</td>
         </ng-container>
 
         <ng-container matColumnDef="actions">

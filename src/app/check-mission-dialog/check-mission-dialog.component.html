@@ -1,0 +1,88 @@
+
+<div class="dialog-header">
+  <h1 mat-dialog-title>Afficher Mission</h1>
+  <button mat-icon-button mat-dialog-close class="close-icon-button">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>
+
+<div mat-dialog-content>
+  <form [formGroup]="missionForm">
+    <div class="form-row">
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Référence</mat-label>
+          <input matInput formControlName="reference" readonly>
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Destination</mat-label>
+          <input matInput formControlName="destination" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Objectif</mat-label>
+          <input matInput formControlName="objectif" readonly>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Responsable</mat-label>
+          <input matInput formControlName="responsable" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Chauffeur</mat-label>
+          <input matInput formControlName="chauffeur" readonly>
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Département</mat-label>
+          <input matInput formControlName="departementLibelle" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Date de Début</mat-label>
+          <input matInput [matDatepicker]="pickerStart" formControlName="dateDebut" readonly>
+          <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStart disabled="true"></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Date de Fin</mat-label>
+          <input matInput [matDatepicker]="pickerEnd" formControlName="dateFin" readonly>
+          <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+          <mat-datepicker #pickerEnd disabled="true"></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field-container">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Accompagnants</mat-label>
+          <input matInput [value]="getAccompagnantsNames()" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+    
+
+
+  </form>
+</div>

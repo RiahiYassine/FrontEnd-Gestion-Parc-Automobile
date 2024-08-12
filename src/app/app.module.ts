@@ -70,6 +70,7 @@ import { AjouterAlerteDialogComponent } from './ajouter-alerte-dialog/ajouter-al
 import { ModifierAlerteDialogComponent } from './modifier-alerte-dialog/modifier-alerte-dialog.component';
 import { AddTypeAlerteDialogComponent } from './add-type-alerte-dialog/add-type-alerte-dialog.component';
 import { ConfirmationFinishDialogComponent } from './confirmation-finish-dialog/confirmation-finish-dialog.component';
+import { CheckMissionDialogComponent } from './check-mission-dialog/check-mission-dialog.component';
 
 
 @NgModule({
@@ -118,6 +119,7 @@ import { ConfirmationFinishDialogComponent } from './confirmation-finish-dialog/
     ModifierAlerteDialogComponent,
     AddTypeAlerteDialogComponent,
     ConfirmationFinishDialogComponent,
+    CheckMissionDialogComponent,
     
    ],
   imports: [
