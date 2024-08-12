@@ -71,6 +71,7 @@ import { ModifierAlerteDialogComponent } from './modifier-alerte-dialog/modifier
 import { AddTypeAlerteDialogComponent } from './add-type-alerte-dialog/add-type-alerte-dialog.component';
 import { ConfirmationFinishDialogComponent } from './confirmation-finish-dialog/confirmation-finish-dialog.component';
 import { CheckMissionDialogComponent } from './check-mission-dialog/check-mission-dialog.component';
+import { AlertesMissionsComponent } from './alertes-missions/alertes-missions.component';
 
 
 @NgModule({
@@ -120,6 +121,7 @@ import { CheckMissionDialogComponent } from './check-mission-dialog/check-missio
     AddTypeAlerteDialogComponent,
     ConfirmationFinishDialogComponent,
     CheckMissionDialogComponent,
+    AlertesMissionsComponent,
     
    ],
   imports: [

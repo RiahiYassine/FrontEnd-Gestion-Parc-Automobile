@@ -53,8 +53,8 @@ export class CheckMissionDialogComponent implements OnInit {
         objectif: this.data.missiondata.objectif,
         dateDebut: this.data.missiondata.dateDebut,
         dateFin: this.data.missiondata.dateFin,
-        responsable: this.data.missiondata.responsable.nom,
-        chauffeur: this.data.missiondata.chauffeur.nom,
+        responsable: this.data.missiondata.responsable.nom + " " + this.data.missiondata.responsable.prenom,
+        chauffeur: this.data.missiondata.chauffeur.nom + " " + this.data.missiondata.chauffeur.prenom,
         departementLibelle: this.data.missiondata.departement.libelle,
         accompagnantsIds: accompagnantIds
       });

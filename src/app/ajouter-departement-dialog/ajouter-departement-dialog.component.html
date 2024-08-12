@@ -63,18 +63,23 @@
         <div class="form-field-container" formGroupName="chef">
             <mat-form-field appearance="outline" class="form-field">
               <mat-label>role</mat-label>
-              <input matInput formControlName="role">
+              <input matInput formControlName="role" readonly>
+              
             </mat-form-field>
         </div>
 
 
       </div>
 
+
+
       <div class="form-row">
         <div class="form-field-container" formGroupName="chef">
           <mat-form-field appearance="outline" class="form-field">
             <mat-label>grade</mat-label>
-            <input matInput formControlName="grade">
+            <mat-select formControlName="grade">
+              <mat-option *ngFor="let g of grades" [value]="g">{{ g }}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="form-field-container">

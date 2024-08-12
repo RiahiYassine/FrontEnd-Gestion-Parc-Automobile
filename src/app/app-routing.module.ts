@@ -17,15 +17,16 @@ import { DepartementComponent } from './departement/departement.component';
 import { MissionComponent } from './mission/mission.component';
 import { CarburantsComponent } from './carburants/carburants.component';
 import { NotificationListComponent } from './notification-list/notification-list.component';
+import { AlertesMissionsComponent } from './alertes-missions/alertes-missions.component';
 
 const routes: Routes = [
-  {path:"",component:SidebarAdminComponent},
-  {path:"login",component:SidebarAdminComponent},
+  {path:"",component:LoginComponent},
+  {path:"login",component:LoginComponent},
   {
     path:"admin", 
     component:SidebarAdminComponent, 
-    //canActivate: [AuthGuard,AuthorizationGuard],
-    //data: { roles: ['CHEF_PARC'] },
+    canActivate: [AuthGuard,AuthorizationGuard],
+    data: { roles: ['CHEF_PARC'] },
     children:[
       {path:"accueil",component:AccueilComponent},
       {path:"vehicules" , component:VehiculesComponent},
@@ -42,13 +43,13 @@ const routes: Routes = [
 
  {
     path:"chef",
-   // component:SideBarChefComponent, 
-   // canActivate: [AuthGuard],
+    component:SideBarChefComponent, 
+    canActivate: [AuthGuard],
     data: { roles: ['CHEF_DEPARTMENT'] },
     children:[
       {path:"employes",component:EmployesComponent},
-      //{path:"employes",component:EmployesComponent},
-      {path:"missions",component:MissionDepartementComponent}
+      {path:"missions",component:MissionDepartementComponent},
+      {path:"alertes",component:AlertesMissionsComponent}
     ]
   }
 ];

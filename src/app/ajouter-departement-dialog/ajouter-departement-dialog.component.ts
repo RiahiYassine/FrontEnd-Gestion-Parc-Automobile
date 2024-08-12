@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AulshService } from '../services/aulsh.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Grade, RoleUser } from '../model/vehicule.model';
 
 @Component({
   selector: 'app-ajouter-departement-dialog',
@@ -11,6 +12,9 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 export class AjouterDepartementDialogComponent implements OnInit {
     departementForm: FormGroup;
   
+    grades = Object.values(Grade);
+
+
     constructor(
       private aulshService: AulshService,
       private fb: FormBuilder,
@@ -27,7 +31,7 @@ export class AjouterDepartementDialogComponent implements OnInit {
           email: ['', Validators.required],
           cin: ['', Validators.required],
           password: ['', Validators.required],
-          role: ['', Validators.required],
+          role: [RoleUser.CHEF_DEPARTMENT, Validators.required],
           grade: ['', Validators.required],
         })
       });

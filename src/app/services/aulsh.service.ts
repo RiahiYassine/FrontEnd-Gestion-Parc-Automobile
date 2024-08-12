@@ -578,4 +578,8 @@ public updateAlerte(id: number, alerteData: any): Observable<any> {
 } 
 
 
+public getAlertesOfMissionAcceptedByDepartement(departementId : number): Observable<Mission[]> {
+  return this.http.get<Mission[]>(`${environment.backendHost}/alertes/missions/${departementId}`);
+}
+
 }

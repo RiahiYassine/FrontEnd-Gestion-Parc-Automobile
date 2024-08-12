@@ -18,6 +18,13 @@
             </mat-list-item>
 
             <mat-list-item class="sidebar-item">
+                <button mat-button routerLink="/chef/alertes" class="sidebar-button">
+                    <mat-icon class="sidebar-icon">notifications</mat-icon>
+                    <span>Alertes</span>
+                </button>
+            </mat-list-item>
+
+            <mat-list-item class="sidebar-item">
                 <button mat-button class="sidebar-button" (click)="logout()">
                     <mat-icon class="sidebar-icon">exit_to_app</mat-icon>
                     <span>Logout</span>
