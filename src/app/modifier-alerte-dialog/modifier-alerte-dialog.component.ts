@@ -120,7 +120,7 @@ export class ModifierAlerteDialogComponent implements OnInit {
                 this.dialogRef.close(response);
             },
             error: err => {
-                console.error('Error updating alerte', err);
+                console.error("Erreur lors de la mise à jour de l'alerte", err);
             }
         });
     }

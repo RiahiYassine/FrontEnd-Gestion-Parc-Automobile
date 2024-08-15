@@ -43,7 +43,7 @@ export class TraiterDialogComponent implements OnInit{
         this.availableVehicles = vehicles;
       },
       error: () => {
-        this.snackBar.open('Error loading available vehicles', 'Close', { duration: 3000 });
+        this.snackBar.open('Erreur lors du chargement des véhicules disponibles', 'Close', { duration: 3000 });
       }
     });
   }
@@ -52,44 +52,15 @@ export class TraiterDialogComponent implements OnInit{
     const motif = this.form.get('motif')?.value;
     this.aulshService.rejectAffectation(this.data.id, { motif }).subscribe({
       next: () => {
-        this.snackBar.open('Affectation rejected successfully', 'Close', { duration: 3000 });
+        this.snackBar.open('Affectation rejetée avec succès', 'Close', { duration: 3000 });
         this.dialogRef.close(true);
       },
       error: () => {
-        this.snackBar.open('Error rejecting affectation', 'Close', { duration: 3000 });
+        this.snackBar.open("Erreur lors du rejet de l'affectation", 'Close', { duration: 3000 });
       }
     });
   }
 
-
-  /* onAccept(): void {
-    const motif = this.form.get('motif')?.value;
-    const vehiculeId = this.form.get('vehiculeId')?.value;
-    this.aulshService.assignVehicleToAffectation(this.data.id, { motif, vehiculeId }).subscribe({
-      next: response => {
-        this.snackBar.open('Affectation accepted successfully', 'Close', { duration: 3000 });
-  
-        const pdfContent = response.pdf;
-        this.downloadPdf(pdfContent);
-  
-        this.dialogRef.close(true);
-      },
-      error: () => {
-        this.snackBar.open('Error accepting affectation', 'Close', { duration: 3000 });
-      }
-    });
-  }
-  
-  downloadPdf(pdfContent: string): void {
-    const linkSource = 'data:application/pdf;base64,' + pdfContent;
-    const downloadLink = document.createElement('a');
-    const fileName = 'affectation.pdf';
-  
-    downloadLink.href = linkSource;
-    downloadLink.download = fileName;
-    downloadLink.click();
-  }
-   */
 
   onAccept(): void {
     const motif = this.form.get('motif')?.value;
@@ -98,7 +69,7 @@ export class TraiterDialogComponent implements OnInit{
       next: response => {
         console.log("Response structure:", response); // Inspect the response structure
   
-        this.snackBar.open('Affectation accepted successfully', 'Close', { duration: 3000 });
+        this.snackBar.open('Affectation acceptée avec succès', 'Close', { duration: 3000 });
   
         const reference = response.mission.reference || 'No Reference';
         const responsable = (response.mission.responsable.nom || 'No Responsable') + ' ' + (response.mission.responsable.prenom || '');

@@ -106,7 +106,7 @@ export class AjouterVehiculeDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error adding vehicle', err);
+          console.error("Erreur lors de l'ajout du véhicule", err);
         }
       });
     }

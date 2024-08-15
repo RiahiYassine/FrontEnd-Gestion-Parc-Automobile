@@ -25,10 +25,11 @@ export class LoginComponent implements OnInit {
   login(): void {
     const email = this.loginFormGroup.value.email;
     const password = this.loginFormGroup.value.password;
-
-    this.authService.login(email, password).subscribe(auth => {
-      if (auth) {
-        const role = this.authService.userRole;
+  
+    this.authService.login(email, password).subscribe(success => {
+      if (success) {
+        const role = localStorage.getItem('userRole');
+  
         if (role === RoleUser.CHEF_PARC) {
           this.router.navigateByUrl('/admin');
         } else if (role === RoleUser.EMPLOYE) {
@@ -36,12 +37,14 @@ export class LoginComponent implements OnInit {
         } else if (role === RoleUser.CHEF_DEPARTMENT) {
           this.router.navigateByUrl('/chef');
         } else {
-          console.error('No valid role found for user.');
+          console.error("Aucun rôle valide trouvé pour l'utilisateur.");
         }
       } else {
         this.loginFailed = true;
       }
     });
   }
+  
+  
 
 }

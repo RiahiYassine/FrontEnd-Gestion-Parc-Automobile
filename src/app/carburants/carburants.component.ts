@@ -187,14 +187,14 @@ export class CarburantsComponent implements OnInit {
         this.aulshService.deleteCarburant(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Carburant deleted successfully', 'Close', {
+            this.snackBar.open('Carburant supprimé avec succès', 'Close', {
               duration: 3000
             });
             this.loadCarburants();
           },
           error: err => {
-            console.error('Error deleting carburant', err);
-            this.snackBar.open('Error deleting carburant', 'Close', {
+            console.error(' ', err);
+            this.snackBar.open('Erreur lors de la suppression du carburant', 'Close', {
               duration: 3000
             });
           }
@@ -210,7 +210,7 @@ export class CarburantsComponent implements OnInit {
         saveAs(blob, `Carburant${reparationId}.pdf`);
       },
       error: err => {
-        console.error('Error downloading file', err);
+        console.error('Erreur lors du téléchargement du fichier', err);
       }
     });
   }

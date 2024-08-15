@@ -77,7 +77,7 @@ export class ModifierReparationDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error updating reparation', err);
+          console.error('Erreur lors de la mise à jour de la réparation', err);
         }
       });
     }
@@ -87,7 +87,7 @@ export class ModifierReparationDialogComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       if (file.type !== 'application/pdf') {
-        this.fileError = 'Only PDF files are allowed.';
+        this.fileError = 'Seuls les fichiers PDF sont autorisés.';
         this.reparationForm.patchValue({ file: null, fileName: '' });
       } else {
         this.fileError = null;

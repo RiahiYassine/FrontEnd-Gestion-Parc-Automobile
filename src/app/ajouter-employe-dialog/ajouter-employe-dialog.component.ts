@@ -62,7 +62,7 @@ export class AjouterEmployeDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error adding employe', err);
+          console.error("Erreur lors de l'ajout de l'employé", err);
         }
       });
     }

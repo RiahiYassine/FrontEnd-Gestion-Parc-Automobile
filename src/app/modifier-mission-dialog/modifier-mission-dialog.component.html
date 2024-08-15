@@ -1,5 +1,5 @@
 <div class="dialog-header">
-    <h1 mat-dialog-title>Modifier Mission</h1>
+    <h1 mat-dialog-title>Modifier la Mission</h1>
     <button mat-icon-button mat-dialog-close class="close-icon-button">
       <mat-icon class="close-icon">close</mat-icon>
     </button>
@@ -70,7 +70,7 @@
       <div class="form-row">
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Date de Début</mat-label>
+            <mat-label>Date de début</mat-label>
             <input matInput [matDatepicker]="pickerStart" formControlName="dateDebut" [min]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
             <mat-datepicker #pickerStart></mat-datepicker>
@@ -78,7 +78,7 @@
         </div>
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Date de Fin</mat-label>
+            <mat-label>Date de fin</mat-label>
             <input matInput [matDatepicker]="pickerEnd" formControlName="dateFin" [min]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
             <mat-datepicker #pickerEnd></mat-datepicker>

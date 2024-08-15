@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { AulshService } from '../services/aulsh.service';
 import { Chart, ChartConfiguration } from 'chart.js/auto';
+import { CardsInfo, TopCard } from '../model/vehicule.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
@@ -11,12 +13,13 @@ export class AccueilComponent implements OnInit, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
   @ViewChild('generalChartCanvas') generalChartCanvas!: ElementRef;
 
-  
   statistics: any[] = [];
   year: number = 2024;
 
   selectedOperationType: string = '';
 
+  cards: CardsInfo = { vehicule: 0, departement: 0, employes: 0, alertes: 0, missionsEnCour: 0, demandesMission: 0 };
+  topcards: TopCard[] = [];
 
   chart!: Chart;
   generalChart!: Chart;
@@ -28,10 +31,10 @@ export class AccueilComponent implements OnInit, AfterViewInit {
 
   operationTypes: string[] = ['ASSURANCE', 'VISITE_TECHNIQUE', 'MAINTENANCE', 'REPARATION','CARBURANT'];
 
-  constructor(private aulshService: AulshService) { }
+  constructor(private aulshService: AulshService, private router: Router) { }
 
   onSubmit(): void {
-    this.getStatisticsByType(this.year); // Fetch statistics based on the selected year and operation type
+    this.getStatisticsByType(this.year); // Récupérer les statistiques en fonction de l'année sélectionnée et du type d'opération
   }
 
   getStatisticsByType(year: number): void {
@@ -44,14 +47,82 @@ export class AccueilComponent implements OnInit, AfterViewInit {
         this.updateGeneralChartData();
       },
       (error) => {
-        console.error('There was an error fetching the statistics!', error);
+        console.error('Il y a eu une erreur lors de la récupération des statistiques!', error);
       }
     );
   }
 
-
   ngOnInit(): void {
     this.getStatistics(this.year);
+    this.loadCardData(); // Charger les données des cartes à l'initialisation
+  }
+
+  loadCardData(): void {
+    this.aulshService.getAllCardsInfo().subscribe({
+      next: value => {
+        this.cards = value;
+
+        this.topcards = [
+          {
+            id: 1,
+            color: 'primary',
+            img: '../../assets/images/svgs/sedan.png',
+            title: 'Véhicules',
+            subtitle: `${this.cards.vehicule}`,
+            path: '/admin/vehicules'
+          },
+
+          {
+            id: 2,
+            color: 'accent',
+            img: '../../assets/images/svgs/notification.png',
+            title: 'Alertes',
+            subtitle: `${this.cards.alertes}`,
+            path: '/admin/alertes'
+          },
+
+          {
+            id: 3,
+            color: 'error',
+            img: '../../assets/images/svgs/assignment.png',
+            title: 'Demandes de Missions',
+            subtitle: `${this.cards.demandesMission}`,
+            path: '/admin/missions'
+          },
+
+          {
+            id: 4,
+            color: 'error',
+            img: '../../assets/images/svgs/pending.png',
+            title: 'Missions en Cours',
+            subtitle: `${this.cards.missionsEnCour}`,
+            path: '/admin/missions'
+          },
+
+          {
+            id: 5,
+            color: 'warning',
+            img: '../../assets/images/svgs/shopping-mall.png',
+            title: 'Départements',
+            subtitle: `${this.cards.departement}`,
+            path: '/admin/departements'
+          },
+
+          {
+            id: 6,
+            color: 'warning',
+            img: '../../assets/images/svgs/employee.png',
+            title: 'Employés',
+            subtitle: `${this.cards.employes}`,
+            path: '/admin/departements'
+          },
+
+        ];
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 
   ngAfterViewInit(): void {
@@ -67,7 +138,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
         this.updateGeneralChartData();
       },
       (error) => {
-        console.error('There was an error fetching the statistics!', error);
+        console.error('Il y a eu une erreur lors de la récupération des statistiques!', error);
       }
     );
   }
@@ -77,7 +148,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     this.chart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
         datasets: []
       },
       options: {
@@ -102,7 +173,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     this.generalChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
         datasets: [{
           label: 'Total',
           data: [],
@@ -127,7 +198,6 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     });
   }
 
-
   updateChartData(): void {
     if (this.chart) {
       this.chart.data.datasets = this.statistics.map(stat => ({
@@ -136,7 +206,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
           stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
           stat[7], stat[8], stat[9], stat[10], stat[11], stat[12]
         ],
-        borderColor: this.getColorByType(stat.type), // Use specific color based on type
+        borderColor: this.getColorByType(stat.type), // Utiliser une couleur spécifique en fonction du type
         backgroundColor: this.getBackgroundColorByType(stat.type),
         fill: false
       }));
@@ -149,10 +219,10 @@ export class AccueilComponent implements OnInit, AfterViewInit {
       const totalData = Array(12).fill(0);
       this.statistics.forEach(stat => {
         for (let i = 1; i <= 12; i++) {
-          totalData[i-1] += Number(stat[i]) || 0;
+          totalData[i - 1] += Number(stat[i]) || 0;
         }
       });
-      
+
       this.generalChart.data.datasets[0].data = totalData;
       this.generalChart.update();
     }
@@ -165,8 +235,6 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     return `rgb(${r},${g},${b})`;
   }
 
-
-
   getColorByType(type: string): string {
     switch (type) {
       case 'VISITE_TECHNIQUE':
@@ -178,29 +246,31 @@ export class AccueilComponent implements OnInit, AfterViewInit {
       case 'REPARATION':
         return '#ff00d1';
       case 'CARBURANT':
-        return '#000000';  
+        return '#000000';
       default:
-        return this.getRandomColor(); // Fallback to a random color if type is unknown
+        return this.getRandomColor(); // Revenir à une couleur aléatoire si le type est inconnu
     }
   }
-  
+
   getBackgroundColorByType(type: string): string {
     switch (type) {
       case 'VISITE_TECHNIQUE':
-        return 'rgba(173, 216, 230, 0.3)'; // Blue background with transparency
+        return 'rgba(173, 216, 230, 0.3)'; // Fond bleu avec transparence
       case 'ASSURANCE':
-        return 'rgba(144, 238, 144, 0.3)'; // Green background with transparency
+        return 'rgba(144, 238, 144, 0.3)'; // Fond vert avec transparence
       case 'MAINTENANCE':
-        return 'rgba(255, 127, 127, 0.3)'; // Red background with transparency
+        return 'rgba(255, 127, 127, 0.3)'; // Fond rouge avec transparence
       case 'REPARATION':
-        return 'rgba(255, 0, 209, 0.3)'; // Yellow background with transparency
+        return 'rgba(255, 0, 209, 0.3)'; // Fond jaune avec transparence
       case 'Carburant':
-        return 'rgba(0, 0, 0, 0.3)';  
+        return 'rgba(0, 0, 0, 0.3)';
       default:
-        return 'rgba(0, 0, 0, 0.3)'; // Default to black background with transparency
+        return 'rgba(0, 0, 0, 0.3)'; // Fond noir par défaut avec transparence
     }
   }
 
-
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
+  }
 
 }

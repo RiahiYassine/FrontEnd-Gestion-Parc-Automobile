@@ -108,14 +108,14 @@ export class DepartementComponent implements OnInit {
         this.aulshService.deleteDepartement(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Departement deleted successfully', 'Close', {
+            this.snackBar.open('Département supprimé avec succès', 'Close', {
               duration: 3000
             });
             this.loadDepartements();
           },
           error: err => {
-            console.error('Error deleting departement', err);
-            this.snackBar.open('Error deleting departement', 'Close', {
+            console.error('Erreur lors de la suppression du département', err);
+            this.snackBar.open('Erreur lors de la suppression du département', 'Close', {
               duration: 3000
             });
           }
@@ -132,8 +132,8 @@ export class DepartementComponent implements OnInit {
         this.employeeDataSource = new MatTableDataSource<User>(employes);
       },
       error: err => {
-        console.error('Error loading employees', err);
-        this.snackBar.open('Error loading employees', 'Close', {
+        console.error('Erreur lors du chargement des employés', err);
+        this.snackBar.open('Erreur lors du chargement des employés', 'Close', {
           duration: 3000
         });
       }

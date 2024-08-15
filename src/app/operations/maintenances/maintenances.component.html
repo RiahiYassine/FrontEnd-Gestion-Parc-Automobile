@@ -28,7 +28,7 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Modele</mat-label>
+            <mat-label>Modèle</mat-label>
             <mat-select formControlName="modele">
               <mat-option value=""><em>None</em></mat-option>
               <mat-option *ngFor="let modele of modeles" [value]="modele">{{ modele }}</mat-option>
@@ -49,7 +49,7 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Categorie Maintenance</mat-label>
+            <mat-label>Catégorie maintenance</mat-label>
             <mat-select formControlName="categorieMaintenance">
               <mat-option value=""><em>None</em></mat-option>
               <mat-option *ngFor="let type of categorieMaintenancesOptions" [value]="type">{{type}}</mat-option>
@@ -84,11 +84,11 @@
           <td mat-cell *matCellDef="let row">{{ row.typeOperation }}</td>
         </ng-container>
         <ng-container matColumnDef="vehicule">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="vehicule.vehiculeSpecif.immatriculation">Vehicule</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="vehicule.vehiculeSpecif.immatriculation">Véhicule</th>
           <td mat-cell *matCellDef="let row">{{ row.vehicule?.vehiculeSpecif?.immatriculation }}</td>
         </ng-container> 
         <ng-container matColumnDef="categorieMaintenance">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="categorieMaintenance">Categorie Maintenance</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="categorieMaintenance">Catégorie maintenance</th>
           <td mat-cell *matCellDef="let row">{{ row.categorieMaintenance }}</td>
         </ng-container>
         <ng-container matColumnDef="nomCentre">
@@ -96,11 +96,11 @@
           <td mat-cell *matCellDef="let row">{{ row.nomCentre }}</td>
         </ng-container> 
         <ng-container matColumnDef="dateOperation">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="dateOperation">Date debut</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="dateOperation">Date de début</th>
           <td mat-cell *matCellDef="let row">{{ row.dateOperation | date:'dd-MM-yyyy' }}</td>
         </ng-container> 
         <ng-container matColumnDef="cout">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="cout">Montant</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="cout">Coût</th>
           <td mat-cell *matCellDef="let row">{{ row.cout }}</td>
         </ng-container> 
         <ng-container matColumnDef="actions">

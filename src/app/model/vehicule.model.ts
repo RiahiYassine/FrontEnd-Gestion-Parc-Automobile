@@ -164,6 +164,26 @@ export interface Departement {
   chef:User;
 }
 
+
+export interface TopCard {
+  id: number;
+  img: string;
+  color: string;
+  title: string;
+  subtitle: string;
+  path: string;
+}
+
+
+export interface CardsInfo{
+  vehicule : number;
+  departement : number;
+  employes : number;
+  alertes : number;
+  missionsEnCour: number;
+  demandesMission:number;
+}
+
 export interface User {
   id: number;
   nom: string;

@@ -49,7 +49,7 @@ export class AjouterMaintenanceDialogComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       if (file.type !== 'application/pdf') {
-        this.fileError = 'Only PDF files are allowed.';
+        this.fileError = 'Seuls les fichiers PDF sont autorisés..';
         this.maintenanceForm.patchValue({ file: null, fileName: '' });
       } else {
         this.fileError = null;
@@ -78,7 +78,7 @@ export class AjouterMaintenanceDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error adding maintenance', err);
+          console.error("Erreur lors de l'ajout de la maintenance", err);
         }
       });
     }

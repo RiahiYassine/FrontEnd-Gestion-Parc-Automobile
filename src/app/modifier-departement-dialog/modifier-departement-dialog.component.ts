@@ -69,7 +69,7 @@ export class ModifierDepartementDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error updating departement', err);
+          console.error('Erreur lors de la mise à jour du département', err);
         }
       });
     }

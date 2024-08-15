@@ -227,7 +227,7 @@ export class VISITETECHNIQUESComponent implements OnInit {
       if (result === 'confirm') {
         this.aulshService.rescheduleExpiredVisiteTechniqueById(visiteTechnique.id).subscribe({
           next: () => {
-            this.snackBar.open('Visite technique rescheduled successfully', 'Close', {
+            this.snackBar.open('Visite technique replanifiée avec succès.', 'Close', {
               duration: 3000
             });
 
@@ -235,7 +235,7 @@ export class VISITETECHNIQUESComponent implements OnInit {
 
           },
           error: err => {
-            this.snackBar.open('Error rescheduling viite technique', 'Close', {
+            this.snackBar.open('Erreur lors de la replanification de la visite technique', 'Close', {
               duration: 3000
             });
           }
@@ -252,14 +252,14 @@ export class VISITETECHNIQUESComponent implements OnInit {
         this.aulshService.deleteVisiteTechnique(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Visite technique deleted successfully', 'Close', {
+            this.snackBar.open('Visite technique deleted successfully.', 'Close', {
               duration: 3000
             });
             this.loadVisiteTechniques();
           },
           error: err => {
-            console.error('Error deleting visite technique', err);
-            this.snackBar.open('Error deleting visite technique', 'Close', {
+            console.error('Erreur lors de la suppression de la visite technique', err);
+            this.snackBar.open('Erreur lors de la suppression de la visite technique', 'Close', {
               duration: 3000
             });
           }
@@ -275,7 +275,7 @@ export class VISITETECHNIQUESComponent implements OnInit {
         saveAs(blob, `VisiteTechnique${assuranceId}.pdf`);
       },
       error: err => {
-        console.error('Error downloading file', err);
+        console.error('Erreur lors du téléchargement du fichier', err);
       }
     });
   }

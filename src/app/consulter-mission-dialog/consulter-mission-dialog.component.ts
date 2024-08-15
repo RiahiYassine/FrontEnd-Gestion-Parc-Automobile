@@ -57,7 +57,7 @@ export class ConsulterMissionDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error updating kilometrage', err);
+          console.error('Erreur lors de la mise à jour du kilométrage', err);
         }
       });
     }

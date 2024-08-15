@@ -125,7 +125,7 @@ export class ModifierVehiculeDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error updating vehicle', err);
+          console.error('Erreur lors de la mise à jour du véhicule', err);
         }
       });
     }

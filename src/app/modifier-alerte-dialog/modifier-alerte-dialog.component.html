@@ -9,7 +9,7 @@
         <div class="form-roww">
           <div class="form-field-container" formGroupName="typeAlerte">
             <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Type Alerte</mat-label>
+              <mat-label>Type d'alerte</mat-label>
               <mat-select formControlName="name">
                 <mat-option *ngFor="let type of typeAlertes" [value]="type">{{ type }}</mat-option>
               </mat-select>
@@ -23,7 +23,7 @@
 
           <div class="form-field-container">
             <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Severity</mat-label>
+              <mat-label>Sévérité</mat-label>
               <mat-select formControlName="severity">
                 <mat-option *ngFor="let type of severities" [value]="type">{{ type }}</mat-option>
               </mat-select>
@@ -43,7 +43,7 @@
 
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Date Operation</mat-label>
+            <mat-label>Date d'operation</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="dateReminder" [min]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -56,7 +56,7 @@
       <div class="form-row">
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>kilometrage</mat-label>
+            <mat-label>Kilométrage</mat-label>
             <input matInput formControlName="kilometrage"/>
           </mat-form-field>
         </div>
@@ -73,7 +73,7 @@
 
       <div *ngIf="alerteForm.hasError('atLeastOneRequired')">
         <mat-error>
-          At least one of Date Reminder or Kilometrage must be provided.
+          Au moins une des options Date de Rappel ou Kilométrage doit être fournie.
         </mat-error>
       </div>
 

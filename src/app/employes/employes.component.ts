@@ -170,8 +170,8 @@ export class EmployesComponent implements OnInit {
             }
           },
           error: err => {
-            console.error('Error deleting employe', err);
-            this.snackBar.open('Error deleting employe', 'Close', {
+            console.error("Erreur lors de la suppression de l'employé", err);
+            this.snackBar.open("Error deleting employe", 'Close', {
               duration: 3000
             });
           }

@@ -1,5 +1,5 @@
 <div class="dialog-header">
-    <h1 mat-dialog-title>Ajouter Employe</h1>
+    <h1 mat-dialog-title>Ajouter un Employé</h1>
     <button mat-icon-button mat-dialog-close class="close-icon-button">
       <mat-icon class="close-icon">close</mat-icon>
     </button>
@@ -9,13 +9,13 @@
       <div class="form-row">
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>nom</mat-label>
+            <mat-label>Nom</mat-label>
             <input matInput formControlName="nom">
           </mat-form-field>
         </div>
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>prenom</mat-label>
+            <mat-label>Prenom</mat-label>
             <input matInput formControlName="prenom">
           </mat-form-field>
         </div>
@@ -24,13 +24,13 @@
       <div class="form-row">      
         <div class="form-field-container">
             <mat-form-field appearance="outline" class="form-field">
-              <mat-label>email</mat-label>
+              <mat-label>Email</mat-label>
               <input matInput formControlName="email">
             </mat-form-field>
         </div>
         <div class="form-field-container">
             <mat-form-field appearance="outline" class="form-field">
-              <mat-label>cin</mat-label>
+              <mat-label>CIN</mat-label>
               <input matInput formControlName="cin">
             </mat-form-field>
         </div>
@@ -40,7 +40,7 @@
       <div class="form-row">    
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>password</mat-label>
+            <mat-label>Password</mat-label>
             <input matInput formControlName="password">
           </mat-form-field>
         </div>
@@ -48,7 +48,7 @@
 
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>role</mat-label>
+            <mat-label>Rôle</mat-label>
             <input matInput formControlName="role" readonly>
           </mat-form-field>
         </div>
@@ -60,7 +60,7 @@
 
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>grade</mat-label>
+            <mat-label>Grade</mat-label>
             <mat-select formControlName="grade">
               <mat-option *ngFor="let g of grades" [value]="g">{{ g }}</mat-option>
             </mat-select>

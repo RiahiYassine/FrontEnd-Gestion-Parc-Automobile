@@ -187,14 +187,14 @@ export class ReparationsComponent implements OnInit {
         this.aulshService.deleteReparation(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Reparation deleted successfully', 'Close', {
+            this.snackBar.open('Réparation supprimée avec succès', 'Close', {
               duration: 3000
             });
             this.loadReparations();
           },
           error: err => {
-            console.error('Error deleting reparation', err);
-            this.snackBar.open('Error deleting reparation', 'Close', {
+            console.error('Erreur lors de la suppression de la réparation', err);
+            this.snackBar.open('Erreur lors de la suppression de la réparation', 'Close', {
               duration: 3000
             });
           }
@@ -210,7 +210,7 @@ export class ReparationsComponent implements OnInit {
         saveAs(blob, `Reparation${reparationId}.pdf`);
       },
       error: err => {
-        console.error('Error downloading file', err);
+        console.error('Erreur lors du téléchargement du fichier', err);
       }
     });
   }

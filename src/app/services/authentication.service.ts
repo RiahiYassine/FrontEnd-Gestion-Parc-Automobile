@@ -16,10 +16,13 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.post<User>(`${environment.backendHost}/users/login`, { email, password })
+    return this.http.post<{ jwt: string, user: User }>(`${environment.backendHost}/users/login`, { email, password })
       .pipe(
-        map(user => {
-          this.authenticatedUser = user;
+        map(response => {
+          console.log("user departement: "+response.user.departement?.libelle)
+          this.authenticatedUser = response.user;
+          localStorage.setItem('jwt', response.jwt);
+          localStorage.setItem('userRole', response.user.role);
           return true;
         }),
         catchError(() => {
@@ -37,12 +40,17 @@ export class AuthenticationService {
     return this.authenticatedUser ? this.authenticatedUser.role : null;
   }
 
+  getJwtToken(): string | null {
+    return localStorage.getItem('jwt');
+  }
+
   get authenticatedUserDetails(): User | null {
     return this.authenticatedUser;
   }
 
   logout(): void {
     this.authenticatedUser = null;
+    localStorage.removeItem('jwt');
     this.router.navigateByUrl("/login");
   }
 }

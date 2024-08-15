@@ -187,14 +187,14 @@ export class MaintenancesComponent implements OnInit {
         this.aulshService.deleteMaintenance(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Maintenance deleted successfully', 'Close', {
+            this.snackBar.open('Maintenance supprimée avec succès', 'Close', {
               duration: 3000
             });
             this.loadMaintenances();
           },
           error: err => {
-            console.error('Error deleting maintenance', err);
-            this.snackBar.open('Error deleting maintenance', 'Close', {
+            console.error('Erreur lors de la suppression de la maintenance', err);
+            this.snackBar.open('Erreur lors de la suppression de la maintenance', 'Close', {
               duration: 3000
             });
           }
@@ -210,7 +210,7 @@ export class MaintenancesComponent implements OnInit {
         saveAs(blob, `Maintenance${maintenanceId}.pdf`);
       },
       error: err => {
-        console.error('Error downloading file', err);
+        console.error('Erreur lors du téléchargement du fichier', err);
       }
     });
   }

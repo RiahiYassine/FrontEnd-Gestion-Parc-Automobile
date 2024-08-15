@@ -278,14 +278,14 @@ export class MissionComponent implements OnInit {
         this.aulshService.deleteAssurance(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Assurance deleted successfully', 'Close', {
+            this.snackBar.open('Assurance supprimée avec succès', 'Close', {
               duration: 3000
             });
             this.loadMissions();
           },
           error: err => {
-            console.error('Error deleting assurance', err);
-            this.snackBar.open('Error deleting assurance', 'Close', {
+            console.error("Erreur lors de la suppression de l'assurance", err);
+            this.snackBar.open("Erreur lors de la suppression de l'assurance", 'Close', {
               duration: 3000
             });
           }
@@ -307,7 +307,6 @@ export class MissionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log("hey")
         this.loadMissions();
       }
     });

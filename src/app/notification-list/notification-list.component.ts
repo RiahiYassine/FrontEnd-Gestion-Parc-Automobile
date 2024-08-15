@@ -162,14 +162,14 @@ export class NotificationListComponent  implements OnInit {
         this.aulshService.deleteAlerte(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Alerte deleted successfully', 'Close', {
+            this.snackBar.open('Alerte supprimée avec succès', 'Close', {
               duration: 3000
             });
             this.loadNotifications();
           },
           error: err => {
-            console.error('Error deleting alerte', err);
-            this.snackBar.open('Error deleting alerte', 'Close', {
+            console.error(' e', err);
+            this.snackBar.open("Erreur lors de la suppression de l'alerte", 'Close', {
               duration: 3000
             });
           }

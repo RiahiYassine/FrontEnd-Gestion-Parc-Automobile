@@ -89,7 +89,7 @@ export class ModifierMissionDialogComponent implements OnInit {
         this.employes = employes;
       },
       error: (err) => {
-        console.error('Error fetching employees', err);
+        console.error('Erreur lors de la récupération des employés', err);
       }
     });
   }
@@ -111,7 +111,7 @@ export class ModifierMissionDialogComponent implements OnInit {
           this.dialogRef.close(response);
         },
         error: err => {
-          console.error('Error updating mission', err);
+          console.error('Erreur lors de la mise à jour de la mission', err);
         }
       });
     }

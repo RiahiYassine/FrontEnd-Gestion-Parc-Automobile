@@ -1,5 +1,5 @@
 <div class="dialog-header">
-    <h1 mat-dialog-title>Modifier Assurance</h1>
+    <h1 mat-dialog-title>Modifier une assurance</h1>
     <button mat-icon-button mat-dialog-close class="close-icon-button">
       <mat-icon class="close-icon">close</mat-icon>
     </button>
@@ -9,7 +9,7 @@
       <div class="form-row">
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Date de l'opération</mat-label>
+            <mat-label>Date d'opération</mat-label>
             <input matInput [matDatepicker]="picker1" formControlName="dateOperation" [max]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
@@ -17,7 +17,7 @@
         </div>
         <div class="form-field-container">
           <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Date de fin de validité</mat-label>
+            <mat-label>Date de fin validité</mat-label>
             <input matInput [matDatepicker]="picker2" formControlName="dateFinValidite" [min]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
@@ -51,7 +51,7 @@
       
       <div class="form-field-container">
         <mat-form-field appearance="outline">
-          <mat-label>File</mat-label>
+          <mat-label>Fichier</mat-label>
           <button type="button" mat-icon-button matPrefix (click)="fileInput.click()">
             <mat-icon>attach_file</mat-icon>
           </button>

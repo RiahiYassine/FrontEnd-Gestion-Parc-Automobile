@@ -46,7 +46,7 @@ export class AjouterAssuranceDialogComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       if (file.type !== 'application/pdf') {
-        this.fileError = 'Only PDF files are allowed.';
+        this.fileError = 'Seuls les fichiers PDF sont autorisés.';
         this.assuranceForm.patchValue({ file: null, fileName: '' });
       } else {
         this.fileError = null;

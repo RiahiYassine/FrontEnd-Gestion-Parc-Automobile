@@ -184,7 +184,7 @@ export class AssurancesComponent implements OnInit {
       if (result === 'confirm') {
         this.aulshService.rescheduleExpiredAssuranceById(assurance.id).subscribe({
           next: () => {
-            this.snackBar.open('Assurance rescheduled successfully', 'Close', {
+            this.snackBar.open('Assurance replanifiée avec succès', 'Close', {
               duration: 3000
             });
 
@@ -192,7 +192,7 @@ export class AssurancesComponent implements OnInit {
 
           },
           error: err => {
-            this.snackBar.open('Error rescheduling assurance', 'Close', {
+            this.snackBar.open("Erreur lors de la replanification de l'assurance", 'Close', {
               duration: 3000
             });
           }
@@ -246,14 +246,14 @@ export class AssurancesComponent implements OnInit {
         this.aulshService.deleteAssurance(id).subscribe({
           next: () => {
             
-            this.snackBar.open('Assurance deleted successfully', 'Close', {
+            this.snackBar.open('Assurance supprimée avec succès', 'Close', {
               duration: 3000
             });
             this.loadAssurances();
           },
           error: err => {
-            console.error('Error deleting assurance', err);
-            this.snackBar.open('Error deleting assurance', 'Close', {
+            console.error("Erreur lors de la suppression de l'assurance", err);
+            this.snackBar.open("Erreur lors de la suppression de l'assurance", 'Close', {
               duration: 3000
             });
           }
@@ -269,7 +269,7 @@ export class AssurancesComponent implements OnInit {
         saveAs(blob, `assurance${assuranceId}.pdf`);
       },
       error: err => {
-        console.error('Error downloading file', err);
+        console.error('Erreur lors du téléchargement du fichier', err);
       }
     });
   }

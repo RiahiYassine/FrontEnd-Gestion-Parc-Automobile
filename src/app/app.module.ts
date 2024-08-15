@@ -72,6 +72,8 @@ import { AddTypeAlerteDialogComponent } from './add-type-alerte-dialog/add-type-
 import { ConfirmationFinishDialogComponent } from './confirmation-finish-dialog/confirmation-finish-dialog.component';
 import { CheckMissionDialogComponent } from './check-mission-dialog/check-mission-dialog.component';
 import { AlertesMissionsComponent } from './alertes-missions/alertes-missions.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -154,7 +156,9 @@ import { AlertesMissionsComponent } from './alertes-missions/alertes-missions.co
     MatDatepickerModule,
     MatNativeDateModule,
     AuthGuard,
-    AuthorizationGuard
+    AuthorizationGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+
   ],
   bootstrap: [AppComponent]
 })

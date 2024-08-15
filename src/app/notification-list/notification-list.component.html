@@ -8,7 +8,7 @@
         <div class="filter-form">
 
           <mat-form-field appearance="outline">
-            <mat-label>typeAlerte</mat-label>
+            <mat-label>Type d'alerte</mat-label>
             <mat-select formControlName="typeAlerte">
               <mat-option value=""><em>None</em></mat-option>
               <mat-option *ngFor="let typeAlerte of typeAlertes" [value]="typeAlerte">{{ typeAlerte }}</mat-option>
@@ -16,7 +16,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>matricule</mat-label>
+            <mat-label>Matricule</mat-label>
             <mat-select formControlName="matricule">
               <mat-option value=""><em>None</em></mat-option>
               <mat-option *ngFor="let matricule of matricules" [value]="matricule">{{matricule}}</mat-option>
@@ -24,7 +24,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>severity</mat-label>
+            <mat-label>Sévérité</mat-label>
             <mat-select formControlName="severity">
               <mat-option value=""><em>None</em></mat-option>
               <mat-option *ngFor="let severity of severities" [value]="severity">{{severity}}</mat-option>
@@ -47,7 +47,7 @@
   <mat-card>  
 
     <mat-card-header>
-      <mat-card-title>Alertes En Cour</mat-card-title>
+      <mat-card-title>Alertes en Cours</mat-card-title>
       <div class="spacer"></div>
       <div class="button-container">
         <button mat-raised-button color="primary" type="button" (click)="openDialog()">
@@ -67,29 +67,29 @@
         </ng-container>
 
         <ng-container matColumnDef="severity">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="libelle">Severity</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="libelle">Sévérité</th>
           <td mat-cell *matCellDef="let row">{{ row.severity }}</td>
         </ng-container>
 
 
         <ng-container matColumnDef="createdAt">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt">date Creation</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt">date de creation</th>
           <td mat-cell *matCellDef="let row">{{ row.createdAt }}</td>
         </ng-container>
 
         <ng-container matColumnDef="dateReminder">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="dateReminder">date Operation</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="dateReminder">date d'operation</th>
           <td mat-cell *matCellDef="let row">{{ row.dateReminder }}</td>
         </ng-container>
 
         <ng-container matColumnDef="kilometrage">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="kilometrage">Kilometrage</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="kilometrage">Kilométrage</th>
           <td mat-cell *matCellDef="let row">{{ row.kilometrage  || '------------'}}</td>
         </ng-container>
         
         
         <ng-container matColumnDef="typeAlerte">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="typeAlerte">Type</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="typeAlerte">Type d'alerte</th>
           <td mat-cell *matCellDef="let row">{{ row.typeAlerte.name }}</td>
         </ng-container>
       
@@ -151,28 +151,28 @@
         </ng-container>
 
         <ng-container matColumnDef="severity">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="libelle">Severity</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="libelle">Sévérité</th>
           <td mat-cell *matCellDef="let row">{{ row.severity }}</td>
         </ng-container>
 
 
         <ng-container matColumnDef="createdAt">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt">date Creation</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt">date de creation</th>
           <td mat-cell *matCellDef="let row">{{ row.createdAt }}</td>
         </ng-container>
 
         <ng-container matColumnDef="dateReminder">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="dateReminder">date Operation</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="dateReminder">date d'operation</th>
           <td mat-cell *matCellDef="let row">{{ row.dateReminder }}</td>
         </ng-container>
         
         <ng-container matColumnDef="typeAlerte">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="typeAlerte">Type</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="typeAlerte">Type d'alerte</th>
           <td mat-cell *matCellDef="let row">{{ row.typeAlerte.name }}</td>
         </ng-container>
       
         <ng-container matColumnDef="kilometrage">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="kilometrage">Kilometrage</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="kilometrage">Kilométrage</th>
           <td mat-cell *matCellDef="let row">{{ row.kilometrage  || '------'}}</td>
         </ng-container>
 

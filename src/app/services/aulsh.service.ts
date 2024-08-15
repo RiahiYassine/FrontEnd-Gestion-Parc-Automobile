@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { AlerteStatus, Assurance, Carburant, Departement, Maintenance, Mission, Reparation, Status, TypeOperation, User, Vehicule, VisiteTechnique } from '../model/vehicule.model';
+import { AlerteStatus, Assurance, Carburant, CardsInfo, Departement, Maintenance, Mission, Reparation, Status, TypeOperation, User, Vehicule, VisiteTechnique } from '../model/vehicule.model';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from '../environments/environment';
@@ -581,5 +581,13 @@ public updateAlerte(id: number, alerteData: any): Observable<any> {
 public getAlertesOfMissionAcceptedByDepartement(departementId : number): Observable<Mission[]> {
   return this.http.get<Mission[]>(`${environment.backendHost}/alertes/missions/${departementId}`);
 }
+
+
+
+getAllCardsInfo(): Observable<CardsInfo> {
+  return this.http.get<CardsInfo>(`${environment.backendHost}/missions/cards`);
+}
+
+
 
 }

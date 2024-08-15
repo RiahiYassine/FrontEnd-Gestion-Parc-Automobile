@@ -184,3 +184,72 @@ button mat-icon {
   margin-left: 10px;
   margin-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.top-cards-container {
+  margin-left: 25px;
+  display: flex;
+  /*flex-wrap: wrap;*/
+  /*margin: -12px; /* Negative margin to counteract padding on cards */
+}
+
+.card {
+  background: #fff; /* Card background color */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  overflow: hidden;
+  width: 170px; /* Adjust card width */
+  margin: 12px; /* Add margin around each card */
+  /* Margin ensures space between cards */
+}
+
+.card-content {
+  padding: 12px; /* Adjust padding inside the card */
+  text-align: center;
+}
+
+.card-icon {
+  width: 80px; /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 8px; /* Space between image and title */
+}
+
+.card-title {
+  font-size: 1em; /* Adjust title font size */
+  margin: 4px 0; /* Space between title and subtitle */
+}
+
+.card-subtitle {
+  font-size: 1.2em; /* Adjust subtitle font size */
+}
+
+
+.primary {
+  background-color: #2196F3;
+  color: white;
+}
+
+.warning {
+  background-color: #FF9800;
+  color: white;
+}
+
+.error {
+  background-color: #F44336;
+  color: white;
+}
+
+.accent {
+  background-color: #E91E63;
+  color: white;
+}
